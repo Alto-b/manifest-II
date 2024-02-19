@@ -296,7 +296,7 @@ Future<void> submit(String? d, DateTime? db) async {
       controller.profileImage?.value = '';
       controller.gender?.value = '';
       Get.snackbar("Successful", "Student registered");
-      Get.to(const HomePage());
+      Get.off(const HomePage());
     } else {
   Get.snackbar("Error", "Not registered");
     }
@@ -308,6 +308,7 @@ Future<void> submit(String? d, DateTime? db) async {
 //to update
 Future<void> edit(String? d, DateTime? db) async {
   int? id = widget.stu!.id;
+  // print(id);
   final imagePath = _selectedImage?.path;
   final name = _nameController.text.trim();
   final gender = selGender;
@@ -316,11 +317,11 @@ Future<void> edit(String? d, DateTime? db) async {
   final mobile = _mobileController.text.trim();
   final email = _emailController.text.trim();
 
-  if (_formKey.currentState?.validate() ?? false) {
-    if (imagePath != null && dob != null && gender!=null) {
+  if (_formKey.currentState?.validate() ?? false) { 
+    if (imagePath != null && dob != null) {
      dbhelper.editStudent(id!, imagePath, name, gender, domain!, dob, mobile, email);
     } else {
-  Get.snackbar("Error", "Add all data");
+  Get.snackbar("Error", "Enter all data");
     }
   }else{
   Get.snackbar("Error", "Add all data ");

@@ -137,6 +137,7 @@ class _StudentListState extends State<StudentList> {
               radius: 40,
               backgroundImage: FileImage(File(photo)),
             ),
+            // Text("id: $id"),
             Text("Name : $name",style: textStyle(),),
             Text("Gender : $gender",style: textStyle(),),
             Text("Domain : $domain",style: textStyle(),),
